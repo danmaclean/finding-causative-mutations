@@ -28,4 +28,7 @@ Trimmomatic
 :	[http://www.usadellab.org/cms/?page=trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 
 Kmer
-:	A sequence of length `k`. Often used to describe the population of all `k`-length sub-sequences of a larger sequence or sequence set, such as a set of reads. 
+:	A sequence of length `k`. Often used to describe the population of all `k`-length sub-sequences of a larger sequence or sequence set, such as a set of reads.
+
+Whole Genome Shotgun
+:	A sequencing method whereby the chromosomes are shattered into fragments and each sequenced individually. 

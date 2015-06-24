@@ -35,3 +35,15 @@ Whole Genome Shotgun
 
 Genetic Mapping
 :	A method where molecular markers a ordered relative to each other using molecular genetic techniques [https://en.wikipedia.org/wiki/Gene_mapping](https://en.wikipedia.org/wiki/Gene_mapping)
+
+Burrows Wheeler Transform
+:	A method for creating an index of subsequences so a sequence space can be searched very quickly [http://en.wikipedia.org/wiki/Burrows–Wheeler_transform](http://en.wikipedia.org/wiki/Burrows–Wheeler_transform)
+
+BWA
+:	A fast, general purpose HTS read aligner that uses Burrows-Wheeler Transforms. [http://bio-bwa.sourceforge.net/](http://bio-bwa.sourceforge.net/)
+
+SAM
+:	An uncompressed, text- and line-based format for recording sequence alignments. [https://samtools.github.io/hts-specs/SAMv1.pdf](https://samtools.github.io/hts-specs/SAMv1.pdf)
+
+Paired-end Reads
+:	Some sequencing strategies sequence the two ends of a fragment of DNA of known length but not the middle bit, so that we end up with two reads where we know the distance between them. We can use the distance to better align each read by looking for alignments that fit with the real distance between.

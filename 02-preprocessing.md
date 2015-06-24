@@ -84,7 +84,7 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 >
 
 > ##1. Run FastQC {.challenge}
-> Use the reads in the `Quality Control` `Shared Data` library. You will find the `FastQC` tool in the tool list under `HTS QC`.
+> Use the reads in the `QC` `Shared Data` library. You will find the `FastQC` tool in the tool list under `HTS QC`.
 > The reads are single ended from a mutagenised _Arabidopsis thaliana_ (a model plant). They are Illumina [Whole Genome Shotgun reads](reference.html#whole_genome_shotgun) so don't have any multiplex adapters and the plants are grown in sterile culture so we aren't expecting contamination.
 >
 > 1. How many reads are you using?
@@ -96,7 +96,7 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 >
 > 1. Is there any evidence of contamination? Which report tells you?
 > 2. If there is, which sequence is contaminating?
-> 3. Which of the three files is the best?
+> 3. Which of the four files is the best?
 > 
 
 > ##3. Clean Up Poor Quality Sequence {.challenge}
@@ -105,8 +105,8 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 > 1. Find a trimming strategy to get rid of contamination you observed in section `2.1`?
 > 2. Which trimming strategy improves the low quality reads
 > 3. Did it make any difference?
-> 4. How could you filter on size? IF you needed to pass only good quality, full length sequences to the next step?
+> 4. How could you filter on size? If you needed to pass only good quality, full length sequences to the next step?
 
 ## TO DO {.todo}
-Make reads: 3 sets of non paired, from A.thal, one set poor at 3` , another with weird kmer at the beginning. Set filename and url for VMs
+Set filename and url for VMs
 

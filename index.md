@@ -27,6 +27,7 @@ This lesson will use a _virtual machine_ (a small computer-within-a-computer) sy
 1.  [Why Do We Need Mutational Genomics?](motivation.html)
 2.  [Mutagenesis and Genetic Screens](01-mutation.html)
 3.  [Pre-Processing Sequence Data](02-preprocessing.html)
+4.  [Aligning Reads To A Reference](03-aligning.html)
 
 ## Other Resources
 

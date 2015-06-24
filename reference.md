@@ -32,3 +32,6 @@ Kmer
 
 Whole Genome Shotgun
 :	A sequencing method whereby the chromosomes are shattered into fragments and each sequenced individually. 
+
+Genetic Mapping
+:	A method where molecular markers a ordered relative to each other using molecular genetic techniques [https://en.wikipedia.org/wiki/Gene_mapping](https://en.wikipedia.org/wiki/Gene_mapping)

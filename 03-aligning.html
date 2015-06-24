@@ -33,40 +33,32 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
                     <a href="index.html"><h1 class="title">Finding Causative Mutations With A Candidate SNP Approach</h1></a>
-          <h2 class="subtitle">Reference</h2>
-          <h2 id="glossary">Glossary</h2>
-<dl>
-<dt><span id="mutational-genomics">Mutational Genomics</span></dt>
-<dd>an experimental process that combines mutagenesis and genomics tools to help us discern the functions of genes.
-</dd>
-<dt><span id="fastq">Fastq</span></dt>
-<dd>a text-based sequence file format that incorporates sequence and quality scores, see <a href="https://en.wikipedia.org/wiki/FASTQ_format" class="uri">https://en.wikipedia.org/wiki/FASTQ_format</a>
-</dd>
-<dt><span id="ascii">ASCII</span></dt>
-<dd>An acronym from American Standard Code for Information Interchange. Does things like describe letter characters as numbers that the computer can understand and provides the basis of the Fastq quality encoding <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_code_chart" class="uri">https://en.wikipedia.org/wiki/ASCII#ASCII_printable_code_chart</a>
-</dd>
-<dt><span id="phred">Phred</span></dt>
-<dd>A score that describes the likelihood of error in a single base call from a sequencing machine <a href="https://en.wikipedia.org/wiki/Phred_quality_score" class="uri">https://en.wikipedia.org/wiki/Phred_quality_score</a>
-</dd>
-<dt><span id="fastqc">FastQC</span></dt>
-<dd>A useful and widely used sequence quality assessment program <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">http://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>
-</dd>
-<dt><span id="encoding">Encoding</span></dt>
-<dd>A confusion in exactly what symbol represents what number in Phred quality scores <a href="https://en.wikipedia.org/wiki/FASTQ_format#Encoding" class="uri">https://en.wikipedia.org/wiki/FASTQ_format#Encoding</a>
-</dd>
-<dt><span id="trimmomatic">Trimmomatic</span></dt>
-<dd><a href="http://www.usadellab.org/cms/?page=trimmomatic" class="uri">http://www.usadellab.org/cms/?page=trimmomatic</a>
-</dd>
-<dt><span id="kmer">Kmer</span></dt>
-<dd>A sequence of length <code>k</code>. Often used to describe the population of all <code>k</code>-length sub-sequences of a larger sequence or sequence set, such as a set of reads.
-</dd>
-<dt><span id="whole-genome-shotgun">Whole Genome Shotgun</span></dt>
-<dd>A sequencing method whereby the chromosomes are shattered into fragments and each sequenced individually.
-</dd>
-<dt><span id="genetic-mapping">Genetic Mapping</span></dt>
-<dd>A method where molecular markers a ordered relative to each other using molecular genetic techniques <a href="https://en.wikipedia.org/wiki/Gene_mapping" class="uri">https://en.wikipedia.org/wiki/Gene_mapping</a>
-</dd>
-</dl>
+          <h2 class="subtitle">Aligning Reads To A Reference</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Understanding Alignment</li>
+<li>Know how to run the correct BWA alignment</li>
+<li>Understand the SAM/BAM format and relationship</li>
+</ul>
+</div>
+</section>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="culture-clash"><span class="glyphicon glyphicon-pushpin"></span>Culture clash</h2>
+</div>
+<div class="panel-body">
+<p><strong>If you’re a bioinformatician</strong> - you may be wondering why I’m not using the words ‘mapping’ reads here. Well, the geneticists in the crowd have a much older technique called <a href="reference.html#genetic_mapping">mapping</a> that does something completely different. I have honestly had conversations where it has been insisted that I can’t possibly map read.</p>
+<p><strong>If you’re a geneticist</strong> - bioinformaticians claim they can do amazing things with reads, mapping them down to the single read level! Of course they usually just mean they’re aligning them.</p>
+</div>
+</aside>
+<blockquote>
+<h2 id="to-do" class="todo">To Do</h2>
+<p>Make two read sets, 1 long for bwa mem, one short challenge: align. Pick parameters? How do we make them equivalent? challenge: merge BAMs, extract SAM. challenge: Visualise? Find average depth, get depth stats? challenge: Study alignment qualities.</p>
+</blockquote>
         </div>
       </div>
       </article>

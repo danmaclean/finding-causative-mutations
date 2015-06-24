@@ -39,7 +39,7 @@ The output format from BWA and most other aligners is [SAM](reference.html#sam) 
 
 Here's the top of a SAM file:
 
->~~~ {.output} 
+~~~ {.output} 
 @HD	VN:1.3	SO:coordinate
 @SQ	SN:chloroplast	LN:154478
 @PG	ID:bwa	PN:bwa	VN:0.7.10-r876-dirty	CL:bwa mem -t 1 -v 1
@@ -47,8 +47,6 @@ chloroplast-1781	99	chloroplast	54	60	250M	=	374	570	TTA	A??	NM:i:0	MD:Z:250	AS:
 chloroplast-757	163	chloroplast	66	60	250M	=	459	643	GCT	A5?	NM:i:6	MD:Z:46A20T65T56A23A2T32	AS:i:220	XS:i:0
 chloroplast-1781	147	chloroplast	374	60	250M	=	54	-570	ACT	G:E	NM:i:6	MD:Z:9T42G1G2G7C42A141	AS:i:220	XS:i:0
 chloroplast-703	163	chloroplast	437	60	250M	=	794	607	AGC	???	NM:i:8	MD:Z:68T2C20C68T16G9A30A8G21	AS:i:210	XS:i:0
-
->
 ~~~
 
 1. The first few lines start with stuff like `@SQ SN` which described thigs like program parameters followed by the name of the sequences in the reference file (`chloroplast`) and the length of the sequence (154478).
@@ -88,7 +86,7 @@ the alignment. Some Galaxy tools will automatically convert the output from alig
 >
 > Picard tools are available in the Galaxy Toolshed if you'd like to look, but I've skipped this step in the interests of time.
 
->## Alignment Quality
+>## 2. Alignment Quality {.challenge}
 > The `HTS SAMtools` tool `BAM-to-SAM`will allow you to turn the binary BAM file into a SAM file you can read.
 > 
 > 1. How good do the individual alignments look overall? Can you tell from the 

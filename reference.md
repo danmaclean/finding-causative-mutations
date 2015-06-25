@@ -47,3 +47,12 @@ SAM
 
 Paired-end Reads
 :	Some sequencing strategies sequence the two ends of a fragment of DNA of known length but not the middle bit, so that we end up with two reads where we know the distance between them. We can use the distance to better align each read by looking for alignments that fit with the real distance between.
+
+PileUp
+:	A text based format that describes in a base-by-base way, the alignments of nucleotides from reads over each position in the genome. [A guide to the format can be found here](http://samtools.sourceforge.net/pileup.shtml)
+
+Synonymous
+:	The evolutionary substitution of one base for another in an exon of a gene coding for a protein, such that the produced amino acid sequence is not modified. [https://en.wikipedia.org/wiki/Synonymous_substitution](https://en.wikipedia.org/wiki/Synonymous_substitution)
+
+Non-synonymous
+:	A nucleotide mutation that alters the amino acid sequence of a protein.[https://en.wikipedia.org/wiki/Nonsynonymous_substitution](https://en.wikipedia.org/wiki/Nonsynonymous_substitution)

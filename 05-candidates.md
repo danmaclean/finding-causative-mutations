@@ -42,22 +42,36 @@ help us to see the rough patterns in a similar way. The homozygous and heterozyg
 
 >## _C.elegans_ {.callout}
 >
-> Galaxy Team members also have a tool for doing this sort of thing, called CloudMap, it provides visualisation and plenty of options for finding the non-recombinant regions in the backcrossed plants and allows you to filter out SNPs that could be candidates, such as EMS ones. As far as I can tell, the version available as a Galaxy tool works on _C.elegans_.
+> Galaxy Team members have also produced a tool for doing this sort of thing. It's called CloudMap and it provides visualisation and plenty of options for finding non-recombinant regions in the backcrossed lines. It helpfully allows you to filter out SNPs that could be candidates, such as EMS induced ones. As far as I can tell, the version available as a Galaxy tool works on _C.elegans_.
 > 
+
+>## Analyse SNP data with CandiSNP {.challenge}
+> You have some whole genome _Arabidopsis_ SNP data annotated with SNPEff in the shared data library `Visualisation`, the VCF file ``. Use this in the `candisnp` tool in the `CandiSNP` tool set. This data set is a real one and we know exactly where the mutation is because we've sequenced it, so there is a _right_ answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.
+>
+>	1. Can you come up with candidate regions / genes for the causative mutation?
+>	2. Which is more useful, filtering or colouring?
+>	3. How much extra information does knowing the genes give? In this specific training case and in a real case where you might know something about the biology already.
 >
 
-cut columns
-c1,c2,c3,c4,c8,c9
+>## Generate density plots of different SNP classes {.challenge}
+> Standard Galaxy tools can generate histograms of data. However the data needs to be in tabular format, not VCF. Here's a little recipe for going from VCF to a table that is useful.
+>
+>	1. To make a tabular file, use the `Text Manipulation .. Cut Columns Tool`. Cut out columns `c1,c2,c3,c4,c8,c9`. 
+>	2. To strip text from the AF field and just leave the numbers, use the `Text Manipulation .. Trim Leading` on `column 5`, trim to position `4` and set to `ignore` `#`.
+>	3. To get the homozygous SNPs, use the `Filter and Sort .. Filter data on any column` tool. Filter on `c5>=0.75` (or whatever seems sensible to you).
+>	4. To get the heterozygous SNPs, do step `3` again but filter on `c5<0.75`.
+>	 
+>This will leave you with two files on which to carry out the remaining steps.
+>	
+>	5. To split the files into single chromosome files use `Text Manipulation .. Split file according to value of a column` use `column 1` (the chromosome column)
+>	6. For each resulting file you can use `Plotting .. Histogram` to make the histograms. It is useful to add the density plot and to use around 150 breaks.
+>
+>With a bit more work you can combine the different plots into one large one for easier comparison, and you can use sliding window tools to calculate the ratio of Hom/Het SNPs across the chromosomes.
 
-trim leading
-col 5, to 4, ignore #
-col 6, to 5 ignore #
+>## Comparing density plots {.challenge}
+>
+>	1. Use the numerous density plots you made to compare the likely positions of the causative SNPs
+>	2. Can you narrow down the area sufficiently to examine the text list in more detail?
+>	3. What further filtering could you do to make the plots more effective?
+>
 
-filter data c5>=0.75
-filter data c5<=0.75
-(2 files)
-
-split column 1 - chromosomes
-(10 files)
-
-histogram column 2, breaks ~ 200

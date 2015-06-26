@@ -61,7 +61,7 @@
 <img src="img/density.png" alt="Density plot of Homozygous, Heterozygous SNP density and the ratio of Hom/Het SNPS in slifing windows" />
 <p class="caption">Density plot of Homozygous, Heterozygous SNP density and the ratio of Hom/Het SNPS in slifing windows</p>
 </div>
-<p>help us to see the rough patterns in a similar way. The homozygous and heterozygous show an increase in the SNP-rich centromeric region which biases the data and an overall decrease at the far right of the chromosome, but the enriched region is visible in the high ratio at about 17Mbp as in the CandiSNP output.</p>
+<p>help us to see the rough patterns in a similar way. The homozygous and heterozygous show an increase in the SNP-rich centromeric region which biases the data and an overall decrease at the far right of the chromosome, but the enriched region is visible in the high ratio at about 17Mbp as in the CandiSNP output. These kinds of plots can be generated with Galaxy’s plotting tools.</p>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
 <h2 id="centromeres"><span class="glyphicon glyphicon-pushpin"></span>Centromeres</h2>
@@ -72,12 +72,60 @@
 </aside>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="section"><span class="glyphicon glyphicon-pushpin"></span>??</h2>
+<h2 id="snp-deletion---fewer-are-better"><span class="glyphicon glyphicon-pushpin"></span>SNP Deletion - Fewer are better</h2>
+</div>
+<div class="panel-body">
+<p>Perhaps counter-intuitively, getting fewer SNPs is often better in these approaches. A common source of confounding SNPs is from the parental line itself. All individuals of any species have differences in the genomes from the references we use to call SNPs, and some (perhaps many) of these will be shared between the parent used to generate the mutants and the mutants. By sequencing the parent line and calling SNPs between it and the reference genome, you get a list of parental SNPs that you can often delete straight out of the mutant as being non-causative.</p>
+</div>
+</aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="c.elegans"><span class="glyphicon glyphicon-pushpin"></span><em>C.elegans</em></h2>
+</div>
+<div class="panel-body">
+<p>Galaxy Team members also have a tool for doing this sort of thing, called CloudMap, it provides visualisation and plenty of options for finding the non-recombinant regions in the backcrossed plants and allows you to filter out SNPs that could be candidates, such as EMS ones. As far as I can tell, the version available as a Galaxy tool works on <em>C.elegans</em>.</p>
+</div>
+</aside>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="analyse-snp-data-with-candisnp"><span class="glyphicon glyphicon-pencil"></span>Analyse SNP data with CandiSNP</h2>
+</div>
+<div class="panel-body">
+<p>You have some whole genome <em>Arabidopsis</em> SNP data annotated with SNPEff in the shared data library <code>Visualisation</code>, the VCF file `<code>. Use this in the</code>candisnp<code>tool in the</code>CandiSNP` tool set. This data set is a real one and we know exactly where the mutation is because we’ve sequenced it, so there is a <em>right</em> answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.</p>
+<ol style="list-style-type: decimal">
+<li>Can you come up with candidate regions / genes for the causative mutation?</li>
+<li>Which is more useful, filtering or colouring?</li>
+<li>How much extra information does knowing the genes give? In this specific training case and in a real case where you might know something about the biology already.</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="generate-density-plots-of-different-snp-classes"><span class="glyphicon glyphicon-pencil"></span>Generate density plots of different SNP classes</h2>
+</div>
+<div class="panel-body">
+<p>Standard Galaxy tools can generate histograms of data. However the data needs to be in tabular format, not VCF. Here’s a little recipe for going from VCF to a table that is useful.</p>
+<ol style="list-style-type: decimal">
+<li>To make a tabular file, use the <code>Text Manipulation .. Cut Columns Tool</code>. Cut out columns <code>c1,c2,c3,c4,c8,c9</code>.</li>
+<li>To strip text from the AF field and just leave the numbers, use the <code>Text Manipulation .. Trim Leading</code> on <code>column 5</code>, trim to position <code>4</code> and set to <code>ignore</code> <code>#</code>.</li>
+<li>To get the homozygous SNPs, use the <code>Filter and Sort .. Filter data on any column</code> tool. Filter on <code>c5&gt;=0.75</code> (or whatever seems sensible to you).</li>
+<li>To get the heterozygous SNPs, do step <code>3</code> again but filter on <code>c5&lt;0.75</code>.</li>
+</ol>
+<p>This will leave you with two files on which to carry out the remaining steps.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>To split the files into single chromosome files use <code>Text Manipulation .. Split file according to value of a column</code> use <code>column 1</code> (the chromosome column)</li>
+<li>For each resulting file you can use <code>Plotting .. Histogram</code> to make the histograms. It is useful to add the density plot and to use around 150 breaks.</li>
+</ol>
+</div>
+</section>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="comparing-density-plots"><span class="glyphicon glyphicon-pencil"></span>Comparing density plots</h2>
 </div>
 <div class="panel-body">
 
 </div>
-</aside>
+</section>
 <p>cut columns c1,c2,c3,c4,c8,c9</p>
 <p>trim leading col 5, to 4, ignore # col 6, to 5 ignore #</p>
 <p>filter data c5&gt;=0.75 filter data c5&lt;=0.75 (2 files)</p>

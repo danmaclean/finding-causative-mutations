@@ -29,6 +29,7 @@ This lesson will use a _virtual machine_ (a small computer-within-a-computer) sy
 3.  [Pre-Processing Sequence Data](02-preprocessing.html)
 4.  [Aligning Reads To A Reference](03-aligning.html)
 5.  [Finding SNPs With An Alignment](04-calling-snps.html)
+6.  [Visualising SNPs To Find Candidates](05-candidates.html)
 
 ## Other Resources
 

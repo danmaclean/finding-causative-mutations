@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Finding Causative Mutations With A Candidate SNP Approach</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <!-- ><link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/> -->
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+      <!--   <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+      	</a> -->
+      	<a href="http://usegalaxy.org" title="Galaxy Community Conference 2015 Training Course - Finding Causative Mutations Using A Candidate SNP Approach">
+      	<img alt="Galaxy Logo" src="img/galaxy.png">	
+      	<a href="gcc2015.tsl.ac.uk" title="Galaxy Community Conference 2015 @ TSL">
+      	<img alt="GCC 2015" src="img/castle.png"> 
+        </a>
+        <span style="font-family:'Open Sans',sans-serif;font-size: 1.8em; font-weight: 400;"> GCC 2015 </span> <span><Finding Causative Mutations With A Candidate SNP approach</span>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Finding Causative Mutations With A Candidate SNP Approach</h1></a>
+          <h2 class="subtitle">Visualising SNPs To Find Candidates</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Understand CandiSNP output</li>
+<li>Plotting frequencies of SNPs of different types across the chromosome</li>
+</ul>
+</div>
+</section>
+<p>Once we have a list of SNPs that we are happy with and have annotated them with SNPEff, there are a couple of approaches we can take to start finding candidates that may be our causative mutation.</p>
+<p>The approach we take will depend on the genetic background. As we discussed at the start, we are generally looking for a region of high homozygous SNPs, but the frequency of other SNPs will depend on the cross. A wide cross from a fairly distant relative (like a different strain or ecotype) as is commonly used in genetic mapping strategies will allow us to make use of the heterozygous SNPs as a control.</p>
+<p>Fast interactive visualisations are a great help in finding the recombinant region and narrowing the candidates. One tool that allows us to do this is CandiSNP. CandiSNP is a JavaScript visualisation package that allows interactive filtering and highlighting of SNPs across whole chromosomes (DISCLAIMER: My group wrote this!)</p>
+<p>It allows you to look at the SNPs like this: <img src="img/candisnp.png" alt="CandiSNP interface" /></p>
+<p>and apply filters to narrow down the region and candidates so you see this:</p>
+<div class="figure">
+<img src="img/candisnp_after.png" alt="CandiSNP after filtering - the region of the high red spot density is the recombinant one" />
+<p class="caption">CandiSNP after filtering - the region of the high red spot density is the recombinant one</p>
+</div>
+<p>CandiSNP takes an annotated VCF file as input.</p>
+<p>Statistical methods are useful when the number of SNPs generated is so large that you can’t visualise them all at the same time.</p>
+<p>Density plots like this one (which is of the same data as the CandiSNP):</p>
+<div class="figure">
+<img src="img/density.png" alt="Density plot of Homozygous, Heterozygous SNP density and the ratio of Hom/Het SNPS in slifing windows" />
+<p class="caption">Density plot of Homozygous, Heterozygous SNP density and the ratio of Hom/Het SNPS in slifing windows</p>
+</div>
+<p>help us to see the rough patterns in a similar way. The homozygous and heterozygous show an increase in the SNP-rich centromeric region which biases the data and an overall decrease at the far right of the chromosome, but the enriched region is visible in the high ratio at about 17Mbp as in the CandiSNP output.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="centromeres"><span class="glyphicon glyphicon-pushpin"></span>Centromeres</h2>
+</div>
+<div class="panel-body">
+<p>Centromeres are a real problem with these sorts of analysis. They are so SNP rich that they swamp analysis and visualisations. It helps to just screen them out from the analysis. CandiSNP will let you turn off centromeres associated SNPs, Galaxy tools can also help you filter them out.</p>
+</div>
+</aside>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="section"><span class="glyphicon glyphicon-pushpin"></span>??</h2>
+</div>
+<div class="panel-body">
+
+</div>
+</aside>
+<p>cut columns c1,c2,c3,c4,c8,c9</p>
+<p>trim leading col 5, to 4, ignore # col 6, to 5 ignore #</p>
+<p>filter data c5&gt;=0.75 filter data c5&lt;=0.75 (2 files)</p>
+<p>split column 1 - chromosomes (10 files)</p>
+<p>histogram column 2, breaks ~ 200</p>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <!-- <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a> -->
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <!-- <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a> -->
+        <a class="label swc-blue-bg" href="mailto:dan.maclean@tsl.ac.uk">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

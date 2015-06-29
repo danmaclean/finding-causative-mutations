@@ -21,6 +21,7 @@ This lesson will use a _virtual machine_ (a small computer-within-a-computer) sy
 >
 > 1. Virtual Box software from [https://www.virtualbox.org/](https://www.virtualbox.org/)
 > 2. The lesson specific virtual machine `GCC2015-CandiSNP.ova` from [Google Drive](https://drive.google.com/file/d/0B7QvKOiEYH0dZ3V6aEpacmhMVFk/view?usp=sharing)
+> 3. You can also download these course materials for offline viewing from [this GitHub link](https://github.com/danmaclean/finding-causative-mutations/archive/master.zip)
 
 ## Topics
 

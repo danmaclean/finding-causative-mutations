@@ -20,7 +20,7 @@ This lesson will use a _virtual machine_ (a small computer-within-a-computer) sy
 > It is absolutely imperative that you have downloaded and installed these two items:
 >
 > 1. Virtual Box software from [https://www.virtualbox.org/](https://www.virtualbox.org/)
-> 2. The lesson specific virtual machine from [dunno.com](https://haventuploaded.org)
+> 2. The lesson specific virtual machine `GCC2015-CandiSNP.ova` from [Google Drive](https://drive.google.com/file/d/0B7QvKOiEYH0dZ3V6aEpacmhMVFk/view?usp=sharing)
 
 ## Topics
 

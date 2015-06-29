@@ -11,7 +11,7 @@ minutes: 25
 > 1. VirtualBox software for your machine
 > 2. The lesson Specific VM.
 >
-> Without these you are going to be in trouble, please make sure you downloaded them before the lesson.
+> Without these you are going to be in trouble, please make sure you downloaded them before the lesson, details are at [index.html](index.html).
 >
 
 
@@ -117,6 +117,5 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 > 3. Did it make any difference?
 > 4. How could you filter on size? If you needed to pass only good quality, full length sequences to the next step?
 
-## TO DO {.todo}
-Set filename and url for VMs
+
 

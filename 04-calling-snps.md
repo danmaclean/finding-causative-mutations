@@ -131,18 +131,26 @@ These qualities are what we will look for in our candidate SNP approach - the mo
 Once SNPEff is run, we have all the information we need to start to make candidates.
 
 >## 1. MPileup {.challenge}
-> You are provided with a new BAM file in the shared data library `SNP calling`, use this to run `SAMtools mpileup`. 
+> You are provided with a new BAM file for _Arabidopsis_ chromosome 4 in the shared data library `SNP Calling`, use it to run `HTS SAMtools .. SAMtools mpileup`. Remember you'll need to load a reference genome, the `TAIR_10_chr4.fasta` file should be imported to your history for this purpose.  
 >
 >	1. How do you make `SAMtools mpileup` output VCF or Mpileup?
 >	2. What are differences in information between the two? 
 >	3. Generate an MPileup file and select appropriate `advanced options` to make sure you have a good enough mapping quality (~20) and base quality (~30) for reliable SNP calls.  
 >	4. What is the point of adding a maximum read depth?
+>	5. How does this run compare in execution time with earlier ones in this course? Why is there a difference?
 >
+
+>## It's taking ages... {.callout}
+> These are the largest datasets we use in this training. The reference is a whole 20 Mb _Arabidopsis_ chromosome, with full 30 deep covereage. The laptop VM takes a while to chug through it. 
+>
+> If you are getting bored, you can restrict the amount of the reference that SAMtools will churn through. Try looking in `Advanced Options` for `Select regions to call`. You can paste or type in a region in the format 'Chr4:1-100' - replacing the 1 and 100 with suitable start and stop coordinates. Try doing just 2000000.
+
 >## 2. VarScan {.challenge}
 > From the mpileup file you created in the challenge above, use `VarScan Mpileup` filter the positions to find the SNPs and make the criteria a bit more stringent. 
+>
 >	1. Inspect the pileup (or run some SAMtools stats) to determine suitable values for the depth and quality parameters.
 >	2. Our purpose is to clearly separate Homozygous and Heterozygous SNPs, which filters do you think we should use? What frequency values should we set to get many, good homozygous calls (hint: 100% frequency rules out some SNPs where a single miscalled read or base messes things up) 
->
+>	3. How long does this take? What factors do you think affect the run time?
 
 > ## 3. SNPEff {.challenge}
 > SNPEff can be found in the `SNP annotation` tool set. Use SNPEff on the VCF file you generated (or the one in the shared data library `SNP Calling`)
@@ -150,7 +158,3 @@ Once SNPEff is run, we have all the information we need to start to make candida
 >	1. Make SNPEff run on just SNPs in the input VCF (our candidate SNP approach won't work on INDELS).
 >	2. How has SNPEff labelled the SNPs it generated?
 >
-
-> ##ToDo
-> Make a decent BAM file for a good coverage pileup, with some SNPs in
-> 

@@ -34,5 +34,3 @@ This lesson will use a _virtual machine_ (a small computer-within-a-computer) sy
 ## Other Resources
 
 *   [Reference](reference.html)
-*   [Discussion](discussion.html)
-*   [Instructor's Guide](instructors.html)

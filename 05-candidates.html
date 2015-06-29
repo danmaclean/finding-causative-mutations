@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: Finding Causative Mutations With A Candidate SNP Approach</title>
+    <title>Finding Causative Mutations: Finding Causative Mutations With A Candidate SNP Approach</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -80,10 +80,10 @@
 </aside>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
-<h2 id="c.elegans"><span class="glyphicon glyphicon-pushpin"></span><em>C.elegans</em></h2>
+<h2 id="c.elegans-and-cloudmap"><span class="glyphicon glyphicon-pushpin"></span><em>C.elegans</em> and CloudMap</h2>
 </div>
 <div class="panel-body">
-<p>Galaxy Team members also have a tool for doing this sort of thing, called CloudMap, it provides visualisation and plenty of options for finding the non-recombinant regions in the backcrossed plants and allows you to filter out SNPs that could be candidates, such as EMS ones. As far as I can tell, the version available as a Galaxy tool works on <em>C.elegans</em>.</p>
+<p>Galaxy Team members have also produced a tool for doing this sort of thing. It’s called CloudMap and it provides visualisation and plenty of options for finding non-recombinant regions in the backcrossed lines. It helpfully allows you to filter out SNPs that could be candidates, such as EMS induced ones. As far as I can tell, the version available as a Galaxy tool works on <em>C.elegans</em>.</p>
 </div>
 </aside>
 <section class="challenge panel panel-success">
@@ -91,7 +91,7 @@
 <h2 id="analyse-snp-data-with-candisnp"><span class="glyphicon glyphicon-pencil"></span>Analyse SNP data with CandiSNP</h2>
 </div>
 <div class="panel-body">
-<p>You have some whole genome <em>Arabidopsis</em> SNP data annotated with SNPEff in the shared data library <code>Visualisation</code>, the VCF file `<code>. Use this in the</code>candisnp<code>tool in the</code>CandiSNP` tool set. This data set is a real one and we know exactly where the mutation is because we’ve sequenced it, so there is a <em>right</em> answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.</p>
+<p>You have some whole genome <em>Arabidopsis</em> SNP data annotated with SNPEff in the shared data library <code>Visualisation</code>, the VCF file <code>filtered_snps.vcf</code>. Use this in the <code>candisnp</code> tool in the <code>CandiSNP</code> tool set. This data set is a real one and we know exactly where the mutation is because we’ve sequenced it, so there is a <em>right</em> answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.</p>
 <ol style="list-style-type: decimal">
 <li>Can you come up with candidate regions / genes for the causative mutation?</li>
 <li>Which is more useful, filtering or colouring?</li>
@@ -116,6 +116,7 @@
 <li>To split the files into single chromosome files use <code>Text Manipulation .. Split file according to value of a column</code> use <code>column 1</code> (the chromosome column)</li>
 <li>For each resulting file you can use <code>Plotting .. Histogram</code> to make the histograms. It is useful to add the density plot and to use around 150 breaks.</li>
 </ol>
+<p>With a bit more work you can combine the different plots into one large one for easier comparison, and you can use sliding window tools to calculate the ratio of Hom/Het SNPs across the chromosomes.</p>
 </div>
 </section>
 <section class="challenge panel panel-success">
@@ -123,14 +124,13 @@
 <h2 id="comparing-density-plots"><span class="glyphicon glyphicon-pencil"></span>Comparing density plots</h2>
 </div>
 <div class="panel-body">
-
+<ol style="list-style-type: decimal">
+<li>Use the numerous density plots you made to compare the likely positions of the causative SNPs</li>
+<li>Can you narrow down the area sufficiently to examine the text list in more detail?</li>
+<li>What further filtering could you do to make the plots more effective?</li>
+</ol>
 </div>
 </section>
-<p>cut columns c1,c2,c3,c4,c8,c9</p>
-<p>trim leading col 5, to 4, ignore # col 6, to 5 ignore #</p>
-<p>filter data c5&gt;=0.75 filter data c5&lt;=0.75 (2 files)</p>
-<p>split column 1 - chromosomes (10 files)</p>
-<p>histogram column 2, breaks ~ 200</p>
         </div>
       </div>
       </article>

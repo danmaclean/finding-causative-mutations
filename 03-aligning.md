@@ -68,12 +68,12 @@ the alignment. Some Galaxy tools will automatically convert the output from alig
 
 
 > ## 1. Align Paired-End Reads To A Reference Genome {.challenge}
-> Use the two sets of paired reads in the `Alignment` shared data library and the `ATH1 chloroplast` reference genome sequence, again these are sequences from the chloroplast genome of the model plant _Arabidopsis_ . One set of reads, `MS`, are from an Illumina MiSeq machine, are 250 nt long and have a fragment length of 650 nt. The others, `GA2` are from an Illumina GAII machine, are 75 nt long and have a fragment length of 350.
+> Use the two sets of paired reads in the `Alignment` shared data library and the `ATH1_chloroplast` reference genome sequence, again these are sequences from the chloroplast genome of the model plant _Arabidopsis_ . One set of reads, `MS`, are from an Illumina MiSeq machine, are 250 nt long and have a fragment length of 650 nt. The others, `GA2` are from an Illumina GAII machine, are 75 nt long and have a fragment length of 350. For the alignment you'll be using a reference from the history.
 >
 > 1. Which algorithm should you use for each set of reads?
 > 2. Align each of these with the BWA program in the `HTS Alignment` tools section. Choose an appropriate algorithm for each sequence set.
 > 3. Pick parameters to make the two alignments as accurate and equivalent as possible? Which should differ? Which should be the same?
-> 4. Check the results with the SAMtools `idxstats` tool and other alignment stats tools in `HTS SAMtools`. How do the results relate to what you know about the sequencing strategy? 
+> 4. Check the results with the SAMtools `idxstats` tool and other alignment stats tools like `Flagstat` and `Stats` in `HTS SAMtools`. How do the results relate to what you know about the sequencing strategy? (What are the calculated insert sizes, what is the coverage?) 
 
 > ## Merge Alignments Into One BAM {.callout}
 > After alignment of two read sets from different sequencing strategies, you might want to merge all of them into one BAM file so that you can work on them as one. This isn't just more convenient, it lets you make use of the extra information from combining the reads into one coverage pileup when calling SNPs or visualising the alignment.  
@@ -89,6 +89,6 @@ the alignment. Some Galaxy tools will automatically convert the output from alig
 >## 2. Alignment Quality {.challenge}
 > The `HTS SAMtools` tool `BAM-to-SAM`will allow you to turn the binary BAM file into a SAM file you can read.
 > 
-> 1. How good do the individual alignments look overall? Can you tell from the 
+> 1. How good do the individual alignments look overall? Can you tell from the output? Is it useful to look at single alignments one by one. 
 > 2. Does the SAM specification [available here](reference.html#SAM) give you any further information from which you can judge the alignments?
 > 

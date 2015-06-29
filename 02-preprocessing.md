@@ -64,11 +64,11 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 
 > ## Your task now is to load up Galaxy and run some reads through quality control and trimming, prior to downstream use. {.callout}
   
-> ## 0. Power Up The VM {.challenge}
-> 1. Start  `VirtualBox` by double-clicking it's application icon.
-> 2. Use `File` .. `Import Appliance` and select the `GCC2015-CandiSNP.ova` VM file.
-> 3. Wait until it finishes importing and press the green `start` button
-> 4. Login. The password is `12345`
+> ## Power Up The VM {.callout}
+>	1. Start  `VirtualBox` by double-clicking it's application icon.
+>	2. Use `File` .. `Import Appliance` and select the `GCC2015-CandiSNP.ova` VM file.
+>	3. Wait until it finishes importing and press the green `start` button
+>	4. Login. The password is `12345`
 
 
 > ## Connecting to the internet {.callout}
@@ -80,7 +80,17 @@ At the sequence sample level (e.g, the read file level), we may discover that ou
 >
 >~~~
 >
-> Try using VirtualBox's other network settings under `Devices` .. `Network` .. `Network Settings..`
+> Try using VirtualBox's other network settings under `Devices` .. `Network` .. `Network Settings..`. Usually you should select, `NAT`. You can tell whether it's working by using the web browser within the machine and navigating to an external site e.g [http://bbc.co.uk](http://bbc.co.uk)
+>
+
+>## Starting Galaxy {.callout}
+> You can either:
+>
+>	1. Double click the `Launch Galaxy` icon on the Desktop. You'll need to be patient, Galaxy takes a little while to launch. 
+>   (it should take about a minute to launch, so don't panic if it doesn't ping into life immediately)
+>	Or
+>	
+>	2. Start a terminal `cd /var/git/galaxy`, `sh run.sh`, navigate to `localhost:8080` with the web browser.
 >
 
 > ##1. Run FastQC {.challenge}

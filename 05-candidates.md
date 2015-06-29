@@ -40,13 +40,13 @@ help us to see the rough patterns in a similar way. The homozygous and heterozyg
 >## SNP Deletion - Fewer are better {.callout}
 > Perhaps counter-intuitively, getting fewer SNPs is often better in these approaches. A common source of confounding SNPs is from the parental line itself. All individuals of any species have differences in the genomes from the references we use to call SNPs, and some (perhaps many) of these will be shared between the parent used to generate the mutants and the mutants. By sequencing the parent line and calling SNPs between it and the reference genome, you get a list of parental SNPs that you can often delete straight out of the mutant as being non-causative. 
 
->## _C.elegans_ {.callout}
+>## _C.elegans_ and CloudMap {.callout}
 >
 > Galaxy Team members have also produced a tool for doing this sort of thing. It's called CloudMap and it provides visualisation and plenty of options for finding non-recombinant regions in the backcrossed lines. It helpfully allows you to filter out SNPs that could be candidates, such as EMS induced ones. As far as I can tell, the version available as a Galaxy tool works on _C.elegans_.
 > 
 
 >## Analyse SNP data with CandiSNP {.challenge}
-> You have some whole genome _Arabidopsis_ SNP data annotated with SNPEff in the shared data library `Visualisation`, the VCF file ``. Use this in the `candisnp` tool in the `CandiSNP` tool set. This data set is a real one and we know exactly where the mutation is because we've sequenced it, so there is a _right_ answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.
+> You have some whole genome _Arabidopsis_ SNP data annotated with SNPEff in the shared data library `Visualisation`, the VCF file `filtered_snps.vcf`. Use this in the `candisnp` tool in the `CandiSNP` tool set. This data set is a real one and we know exactly where the mutation is because we've sequenced it, so there is a _right_ answer. Use the sliders and filter tools to find a region enriched in homozygous candidate SNPs.
 >
 >	1. Can you come up with candidate regions / genes for the causative mutation?
 >	2. Which is more useful, filtering or colouring?

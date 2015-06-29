@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" content="pandoc">
-    <title>Software Carpentry: Finding Causative Mutations With A Candidate SNP Approach</title>
+    <title>Finding Causative Mutations: Finding Causative Mutations With A Candidate SNP Approach</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
@@ -133,15 +133,36 @@ etc </code></pre>
 <h2 id="mpileup"><span class="glyphicon glyphicon-pencil"></span>1. MPileup</h2>
 </div>
 <div class="panel-body">
-<p>You are provided with a new BAM file in the shared data library <code>SNP calling</code>, use this to run <code>SAMtools mpileup</code>.</p>
+<p>You are provided with a new BAM file for <em>Arabidopsis</em> chromosome 4 in the shared data library <code>SNP Calling</code>, use it to run <code>HTS SAMtools .. SAMtools mpileup</code>. Remember you’ll need to load a reference genome, the <code>TAIR_10_chr4.fasta</code> file should be imported to your history for this purpose.</p>
 <ol style="list-style-type: decimal">
 <li>How do you make <code>SAMtools mpileup</code> output VCF or Mpileup?</li>
 <li>What are differences in information between the two?</li>
 <li>Generate an MPileup file and select appropriate <code>advanced options</code> to make sure you have a good enough mapping quality (~20) and base quality (~30) for reliable SNP calls.<br /></li>
 <li>What is the point of adding a maximum read depth?</li>
+<li>How does this run compare in execution time with earlier ones in this course? Why is there a difference?</li>
 </ol>
-<h2 id="varscan" class="challenge">2. VarScan</h2>
-<p>From the mpileup file you created in the challenge above, use <code>VarScan Mpileup</code> filter the positions to find the SNPs and make the criteria a bit more stringent. 1. Inspect the pileup (or run some SAMtools stats) to determine suitable values for the depth and quality parameters. 2. Our purpose is to clearly separate Homozygous and Heterozygous SNPs, which filters do you think we should use? What frequency values should we set to get many, good homozygous calls (hint: 100% frequency rules out some SNPs where a single miscalled read or base messes things up)</p>
+</div>
+</section>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="its-taking-ages"><span class="glyphicon glyphicon-pushpin"></span>It’s taking ages…</h2>
+</div>
+<div class="panel-body">
+<p>These are the largest datasets we use in this training. The reference is a whole 20 Mb <em>Arabidopsis</em> chromosome, with full 30 deep covereage. The laptop VM takes a while to chug through it.</p>
+<p>If you are getting bored, you can restrict the amount of the reference that SAMtools will churn through. Try looking in <code>Advanced Options</code> for <code>Select regions to call</code>. You can paste or type in a region in the format ‘Chr4:1-100’ - replacing the 1 and 100 with suitable start and stop coordinates. Try doing just 2000000.</p>
+</div>
+</aside>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="varscan"><span class="glyphicon glyphicon-pencil"></span>2. VarScan</h2>
+</div>
+<div class="panel-body">
+<p>From the mpileup file you created in the challenge above, use <code>VarScan Mpileup</code> filter the positions to find the SNPs and make the criteria a bit more stringent.</p>
+<ol style="list-style-type: decimal">
+<li>Inspect the pileup (or run some SAMtools stats) to determine suitable values for the depth and quality parameters.</li>
+<li>Our purpose is to clearly separate Homozygous and Heterozygous SNPs, which filters do you think we should use? What frequency values should we set to get many, good homozygous calls (hint: 100% frequency rules out some SNPs where a single miscalled read or base messes things up)</li>
+<li>How long does this take? What factors do you think affect the run time?</li>
+</ol>
 </div>
 </section>
 <section class="challenge panel panel-success">
@@ -156,10 +177,6 @@ etc </code></pre>
 </ol>
 </div>
 </section>
-<blockquote>
-<h2 id="todo">ToDo</h2>
-<p>Make a decent BAM file for a good coverage pileup, with some SNPs in</p>
-</blockquote>
         </div>
       </div>
       </article>
